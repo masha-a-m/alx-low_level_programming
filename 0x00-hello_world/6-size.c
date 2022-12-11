@@ -1,14 +1,22 @@
 #include <stdio.h>
 /**
- *main - Entry
- *Return: Always 0
+ * main - runs data type
+ *
+ * Return: Always 0(Success)
  */
+
 int main(void)
 {
-	printf("Size of a char: %i byte(s)\n", sizeof(char));
-	printf("Size of an int: %i byte(s)\n", sizeof(int));
-	printf("Size of a long int: %i byte(s)\n", sizeof(long int));
-	printf("Size of a long long int: %i byte(s)\n", sizeof(long long int));
-	printf("Size of a float: %i byte(s)\n", sizeof(float));
-	return (0);
+	char q;
+	int w;
+	long int e;
+	long long ibt r;
+	float f;
 
+	printf("Size of a char: %i byte(s)\n", (unsigned long)sizeof(q));
+	printf("Size of an int: %i byte(s)\n", (unsigned long)sizeof(w));
+	printf("Size of a long int: %i byte(s)\n", (unsigned long)sizeof(e));
+	printf("Size of a long long int: %i byte(s)\n", (unsigned long)sizeof(r));
+	printf("Size of a float: %i byte(s)\n", (unsigned long)sizeof(f));
+	return (0);
+}
