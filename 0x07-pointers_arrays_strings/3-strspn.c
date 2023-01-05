@@ -23,7 +23,8 @@ for (y = 0; accept[y] != '\0'; y++)
 if (s[x] == accept[y])
 z++;
 }
-}										else
+}
+else
 return (z);
 }
 return (z);
