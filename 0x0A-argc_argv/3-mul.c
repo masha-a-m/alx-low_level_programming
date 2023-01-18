@@ -20,7 +20,7 @@ return (1);
 arg1 = atoi(argv[1]);
 arg2 = atoi(argv[2]);
 
-product = arg1 * arg2;
+product = arg1 *arg2;
 
 printf("%d\n", product);
 
