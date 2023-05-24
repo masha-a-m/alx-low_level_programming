@@ -1,0 +1,13 @@
+# task 1
+
+CC = gcc
+#makefile C program
+
+SRC = main.c school.c
+
+#new alx task 
+all: $(SRC)
+
+	$(CC) $(SRC) -o school
+
+#school -o 
