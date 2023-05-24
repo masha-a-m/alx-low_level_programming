@@ -1,0 +1,41 @@
+#rules: all, clean, oclean, fclean, re
+
+CC = gcc
+#new task
+SRC = main.c school.c
+
+#all: builds your executable
+#clean: deletes all Emacs and Vim temporary files along with the executable
+
+OBJ = $(SRC:.c=.o)
+
+
+#oclean: deletes the object files
+NAME = school
+#C proframming 
+RM = rm -f
+
+all: $(OBJ)
+#task 3
+	$(CC) $(OBJ) -o $(NAME)
+
+	#task 3
+clean:
+	$(RM) *~ $(NAME)
+
+#obj -o name
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+#clean to delete all emac files
+re: fclean all
+#fclean: deletes all Emacs and Vim temporary files, the executable, and the object files
+#re: forces recompilation of all source files
+#variables: CC, SRC, OBJ, NAME, RM
+#CC: the compiler to be used
+####SRC: the .c files
+#OBJ: the .o files
+#NAME: the name of the executable
+#RM: the program to delete files
