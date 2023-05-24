@@ -2,41 +2,38 @@ CC = gcc
 #make -f makefile
 
 SRC = main.c school.c
-
 #name of the executable: school
-
-
 OBJ = $(SRC:.c=.o)
 
-#rules: all, clean, fclean, oclean, re
 NAME = school
-RM = rm -f
 
+RM = rm -f
 
 #all: builds your executable
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-#clean: deletes all Emacs and Vim temporary files along with the executable
 #oclean: deletes the object files
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
+PHONY: clean oclean fclean re
 
-clean:
-	$(RM) *~ $(NAME)
+clean: 
+	$(RM) -rf *~ $(NAME)
+
+oclean: 
+	$(RM) -rf $(OBJ)
 
 
-#fclean: deletes all Emacs and Vim temporary files, the executable, and the object files
-oclean:
-	$(RM) $(OBJ)
-
+	
+#$(RM) $(OBJ)
 
 #re: forces recompilation of all source files
 #variables: CC, SRC, OBJ, NAME, RM, CFLAGS
 #CC: the compiler to be used
 #C progra
-	 fclean: clean oclean
+fclean: clean oclean
 
 re: fclean all
 
