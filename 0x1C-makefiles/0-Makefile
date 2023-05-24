@@ -1,0 +1,7 @@
+#new task 0
+
+all: main.c school.c
+	gcc main.c school.c -o school
+
+#make me dile task 0 C program
+
