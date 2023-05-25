@@ -4,31 +4,29 @@
 
 def island_perimeter(grid):
 
+	 """new tsskv5 #grid is a list of list of integers:
+ 19 #0 represents a water zone
+ 20
+ 21
+ 22 # represents a land zone                                23 #One cell is a square with side length 1
+ 24 #Grid cells are connected horizontally/vertically (not     diagonally).
+	 Alx
+	 5 -islsnd perineter 
+	 python"""
 
-#Create a function def island_perimeter(grid): that returns the perimeter of the island described in grid:
-
-    width = len(grid[]) 
-	 """fot the width"""
+    width = len(grid[])
     
-    height = len(grid) 
-	 """height"""
+    height = len(grid)
     edges = 0
     size = 0
 
-#grid is a list of list of integers:
-#0 represents a water zone
 
 
-# represents a land zone
-#One cell is a square with side length 1
-#Grid cells are connected horizontally/vertically (not diagonally).
-
-     for i in range(height): 
-"""for every i in the range height"""
+     for i in range(height):
 
          for j in range(width):
              if grid[i][j] == 1: 
-"""for jin ramge width"""
+
 
                  size += 1
                  if (j > 0 and grid[i][j - 1] == 1):
@@ -40,6 +38,3 @@ def island_perimeter(grid):
 
 
      return size * 4 - edges * 2
-#Grid is rectangular, width and height don’t exceed 100
-#Grid is completely surrounded by water, and there is one island (or nothing).
-#The island doesn’t have “lakes” (water inside that isn’t connected to the water around the island).
