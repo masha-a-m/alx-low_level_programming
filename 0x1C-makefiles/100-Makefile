@@ -1,0 +1,45 @@
+CC = gcc
+
+
+"""task 100"""
+
+SRC = main.c school.c
+
+
+"""do not use stribgs CFLAGS"""
+
+OBJ = $(SRC:.c=.o)
+
+
+""" do not habe a list of all o files """ 
+
+NAME = school
+
+
+"""do not use atribg RM twice""" 
+
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+.PHONY: all clean oclean fclean re
+
+
+"""do not have an OBJ eule"""
+
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) *~ $(NAME)
+
+
+"""task in the C make file"""
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+
+"""name of the executable sxhool"""
+
+re: fclean all
