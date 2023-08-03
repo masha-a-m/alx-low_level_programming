@@ -1,52 +1,61 @@
 #include "search_algos.h"
 
 /**
-   binary_search(int *array, size_t size, int value);
-Where array is a pointer to the first element of the array to search in
-size is the number of elements in array
-And value is the value to search for
-Your function must return the index where value is located
-You can assume that array will be sorted in ascending order
-You can assume that value won’t appear more than once in array
-*/
+ * recursive_search - searches for a value in an array of
+ * integers using the Binary search algorithm
+ *
+ *
+ * @array: input array
+ * @size: size of the array
+ * @value: value to search in
+ * Return: index of the number
+ */
+int recursive_search(int *array, size_t size, int value)
+{
+	size_t half = size / 2;
+	size_t i;
 
-int binary_search(int *array, size_t size, int value) {
-    if (array == NULL)
-        return -1;
+	if (array == NULL || size == 0)
+		return (-1);
 
-    int left = 0;
-    int right = size - 1;
+	printf("Searching in array");
 
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
+	for (i = 0; i < size; i++)
+		printf("%s %d", (i == 0) ? ":" : ",", array[i]);
 
-        std::cout << "Searching subarray: ";
-        for (int i = left; i <= right; i++) {
-            std::cout << array[i] << " ";
-        }
-        std::cout << std::endl;
+	printf("\n");
 
-        if (array[mid] == value)
-            return mid;
-        else if (array[mid] < value)
-            left = mid + 1;
-        else
-            right = mid - 1;
-    }
+	if (half && size % 2 == 0)
+		half--;
 
-    return -1;
+	if (value == array[half])
+		return ((int)half);
+
+	if (value < array[half])
+		return (recursive_search(array, half, value));
+
+	half++;
+
+	return (recursive_search(array + half, size - half, value) + half);
 }
 
-int main() {
-    int arr[] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
-    size_t size = sizeof(arr) / sizeof(arr[0]);
+/**
+ * binary_search - calls to binary_search to return
+ * the index of the number
+ *
+ * @array: input array
+ * @size: size of the array
+ * @value: value to search in
+ * Return: index of the number
+ */
+int binary_search(int *array, size_t size, int value)
+{
+	int index;
 
-    int value = 11;
-    int index = binary_search(arr, size, value);
-    if (index != -1)
-        std::cout << "Value " << value << " found at index " << index << std::endl;
-    else
-        std::cout << "Value " << value << " not found in the array" << std::endl;
+	index = recursive_search(array, size, value);
 
-    return 0;
+	if (index >= 0 && array[index] != value)
+		return (-1);
+
+	return (index);
 }
